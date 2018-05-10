@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
 
-# Create your views here.
+from utils.test_fortnite_search import getFortnite
+
+
+def get_search_player(request):
+    context = getFortnite()
+    print(context)
+    return JsonResponse(context)
