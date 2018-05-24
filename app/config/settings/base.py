@@ -15,9 +15,10 @@ from djs import import_secrets
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT_DIR = os.path.dirname(BASE_DIR)
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-SECRETS_DIR = os.path.join(BASE_DIR, '.secrets')
+SECRETS_DIR = os.path.join(ROOT_DIR, '.secrets')
 import_secrets()
 
 # Quick-start development settings - unsuitable for production
