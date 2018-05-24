@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block section_header %}
+<div>
+    <h1>아이디를 입력하세요</h1>
+
+    <form action="{% url 'player-detail' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" value="{{ request.POST.name }}" id="name" class="form-control" required>
+        <button type="submit" class="btn btn-primary">검색</button>
+    </form>
+
+</div>
+{% endblock %}

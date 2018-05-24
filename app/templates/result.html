@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block section_header %}
+{% include 'index.html' %}
+<div>
+    <h3>{{ player.name }}</h3>
+</div>
+{% endblock %}
+
+{% block section_article %}
+<div>
+    <h3>승리!</h3>
+    {% for type,win in wins.items %}
+    <div>{{ type }} : {{ win }}</div>
+    {% endfor %}
+</div>
+
+{% for type,value in stats.items %}
+    <div>
+        <br>
+        {{ type }}
+        <br>
+        {% for key, data in value.items %}
+            {{ key }} : {{ data }}
+        {% endfor %}
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -2,8 +2,8 @@ from django.conf import settings
 from pfaw import Fortnite, Platform, Mode
 
 
-def getFortnite():
-    USERNAME = 'himanmen'
+def getFortnite(name):
+    USERNAME = name
 
     fortnite = Fortnite(
         fortnite_token=settings.FORTNITE_AUTHORIZATION,
@@ -22,6 +22,11 @@ def getFortnite():
     duo = stats.duo
     squad = stats.squad
     all = stats.all
+
+    leaderboard = fortnite.leaderboard(count=10, platform=Platform.pc, mode=Mode.solo)
+
+    for player in leaderboard:
+        print(f'{player.id} - {player.name} - {player.rank} - {player.value}')
 
     return {
         'player': {
@@ -123,6 +128,7 @@ def getFortnite():
     #             print(price.sale_expiration)
     #             print(price.base_price)
     #
+
     # leaderboard = fortnite.leaderboard(count=10, platform=Platform.pc, mode=Mode.solo)
     #
     # for player in leaderboard:
